@@ -19,10 +19,8 @@ const geoUrl = apiConfig.geoUrl;
 
 function checkWeather(currentCity) {
     let data="";
-    console.info(apiUrl + currentCity + `&appid=${apiKey}`);
     fetch(apiUrl + currentCity + `&appid=${apiKey}`).then(response => response.json()).then(responsedat => {
         data = responsedat;
-        console.info(data);
         temp.innerText = Math.round(data.main.temp) + ` ℃`;
         mainDescription.innerText = data.weather[0].main;
         city.innerText = data.name;
